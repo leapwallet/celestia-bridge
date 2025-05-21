@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body.leap-ui {
+  font-family: var(--font-geist-sans), sans-serif;
+  --radius: 1rem;
+}
+
+.white-primary {
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --ring: 0 0% 100%;
+}
+
+.hotpink-primary {
+  --primary: 338 83% 58%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 338 83% 58%;
+}
+
+.dullyellow-primary {
+  --primary: 36 51% 45%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 36 51% 45%;
+}
+
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 calc(2px) hsl(var(--ring));
+}
+
+.hero {
+  min-height: calc(100dvh);
+  height: auto;
+}
+
+body.leap-ui.dark {
+  /* hsl(0deg, 0%, 6.84%) */
+  --background: 0 0% 6.84%;
+
+  /* hsl(0deg, 0%, 11.8%) */
+  --card: 0 0% 11.8%;
+}
+
+body.leap-ui.dark {
+  background-color: #1b1b1b;
+}
+
+.view-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.overflow-fade::after {
+  display: none;
+  content: "";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  height: 1rem;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, var(--fade-color, black));
+}
+
+.overflow-fade.is-bottom-overflowing::after {
+  display: block;
+}
+
+/* .custom-scrollbar {
+	scrollbar-width: 0.5em;
+	scrollbar-color: hsl(var(--secondary)) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 0.5em;
+	background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background-color: hsl(var(--secondary));
+	border: 1px solid hsl(var(--secondary));
+	border-radius: 1rem;
+} */
+
+* {
+  --scrollbar-color: #4c4c4ccc;
+  scrollbar-width: 0.5em;
+  scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border: 1px solid var(--scrollbar-color);
+  border-radius: 1rem;
+}
+
+.celestia-bridge-panel-sizing {
+  @apply min-h-[70dvh] h-auto;
+  @apply md:min-h-[30rem] [@media(max-height:680px)]:md:h-[30rem] md:h-[60dvh] md:max-h-[42rem];
+}
+
+@media not all and (max-width: 768px) {
+  .aggregated-swaps-container-celestia-bridge {
+    flex-grow: 1;
+  }
+
+  .aggregated-swaps-container-celestia-bridge > [data-rk="rainbowkit"] {
+    @apply h-min;
+  }
+}
+
+.aggregated-swaps-container-celestia-bridge > [data-rk="rainbowkit"] {
+  @apply h-full;
+  @apply min-h-[100dvh];
+  @apply min-w-[100dvw];
+}
+
+@media not all and (max-width: 768px) {
+  .aggregated-swaps-container-swap-panel {
+    flex-grow: 1;
+  }
+
+  .aggregated-swaps-container-swap-panel > [data-rk="rainbowkit"] {
+    @apply h-min;
+  }
+}
+
+.aggregated-swaps-container-swap-panel > [data-rk="rainbowkit"] {
+  @apply h-full;
+  @apply min-h-[29.1rem];
+}
+
+.aggregated-swaps-container-swap-panel > [data-rk="rainbowkit"] {
+  @apply h-0;
+}
+
+@media not all and (max-width: 768px) {
+  .aggregated-swaps-container-swaps {
+    flex-grow: 1;
+  }
+
+  .aggregated-swaps-container-swaps > [data-rk="rainbowkit"] {
+    @apply h-min;
+  }
+}
+
+.aggregated-swaps-container-swaps > [data-rk="rainbowkit"] {
+  @apply h-full;
+  @apply min-h-[29.1rem];
+}
+
+body footer {
+  --c1: hsl(0, 0%, 26%);
+  --c2: hsl(256, 49%, 39%);
+  --c3: hsl(133, 62%, 45%);
+  --c4: hsl(327, 68%, 49%);
+  --c5: hsl(47, 68%, 49%);
+}
+
+body.dark footer {
+  --c1: hsl(0, 0%, 11%);
+  --c2: hsl(256, 49%, 19%);
+  --c3: hsl(133, 62%, 25%);
+  --c4: hsl(327, 68%, 29%);
+  --c5: hsl(47, 68%, 29%);
+}
+
+body.leap-ui .view-container {
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  width: 100%;
+  max-width: 26rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+#ew-sticky-view-trigger {
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+body.leap-ui.dark.eclipse {
+  --primary: 119 98% 81%;
+  --primary-foreground: 0, 0%, 0%;
+
+  --ring: 120 98% 81%;
+
+}
+
+body.leap-ui.eclipse {
+  --primary: 119 98% 81%;
+  --primary-foreground: 0, 0%, 0%;
+
+  --ring: 120 98% 81%;
+
+}
+
+body.leap-ui.dark.forma {
+  --primary: 0, 100%, 71%;
+
+  --ring : 0, 100%, 71%;
+}
+
+body.leap-ui.dark.forma .view-footer .leap-button:hover {
+  background-color: hsla(0, 100%, 71%,  0.9) !important
+}
+
+body.leap-ui.dark.celestia {
+  --primary: 0, 0%, 100%;
+  --primary-foreground: 0, 0%, 0%;
+  --ring: 0, 0%, 100%;
+}
+
+body.leap-ui.celestia {
+  --primary: 266, 87%, 65%;
+  --primary-foreground: 0, 0%, 100%;
+  --ring: 0, 0%, 100%;
+  background: linear-gradient(180deg, #9C59F3 0%, #54A9F2 178.25%);
+}
+
+body.leap-ui.dark.celestia .view-footer .leap-button:hover {
+  background-color: hsla(0, 0%, 100%, 0.9) !important
+}
+
+body.leap-ui.celestia .view-footer .leap-button:hover {
+  background-color: hsla(266, 87%, 65%, 0.9) !important
+}
