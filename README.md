@@ -115,6 +115,158 @@ To add support for a new chain:
    - Update `allowedSourceChains` if needed
    - Adjust default values for swaps
 
+## Customizing Chain-Specific Styles
+
+The project uses CSS classes in `src/app/globals.css` to implement chain-specific styling. Here's how to customize styles for a new chain:
+
+1. **Base Theme Classes**
+   Add your chain-specific classes following this pattern:
+   ```css
+   body.leap-ui.your-chain {
+     --primary: [HUE] [SATURATION]% [LIGHTNESS]%;
+     --primary-foreground: [HUE] [SATURATION]% [LIGHTNESS]%;
+     --ring: [HUE] [SATURATION]% [LIGHTNESS]%;
+   }
+   ```
+
+2. **Dark Mode Support**
+   Add dark mode variants for your chain:
+   ```css
+   body.leap-ui.dark.your-chain {
+     --primary: [HUE] [SATURATION]% [LIGHTNESS]%;
+     --primary-foreground: [HUE] [SATURATION]% [LIGHTNESS]%;
+     --ring: [HUE] [SATURATION]% [LIGHTNESS]%;
+   }
+   ```
+
+3. **Hover States**
+   Customize hover states for buttons and interactive elements:
+   ```css
+   body.leap-ui.your-chain .view-footer .leap-button:hover {
+     background-color: hsla([HUE], [SATURATION]%, [LIGHTNESS]%, 0.9) !important;
+   }
+   ```
+
+4. **Background Styles**
+   Add custom background styles if needed:
+   ```css
+   body.leap-ui.your-chain {
+     background: [your-background-style];
+   }
+   ```
+
+Here's the complete list of CSS variables that you can customize:
+
+### Base Theme Variables
+```css
+/* Primary Colors */
+--primary: [HUE] [SATURATION]% [LIGHTNESS]%;        /* Main brand color */
+--primary-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Text color on primary background */
+
+/* Ring/Focus Colors */
+--ring: [HUE] [SATURATION]% [LIGHTNESS]%;          /* Color for focus rings and outlines */
+
+/* Background Colors */
+--background: [HUE] [SATURATION]% [LIGHTNESS]%;    /* Main background color */
+--foreground: [HUE] [SATURATION]% [LIGHTNESS]%;    /* Main text color */
+
+/* Secondary Colors */
+--secondary: [HUE] [SATURATION]% [LIGHTNESS]%;     /* Secondary background color */
+--secondary-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Secondary text color */
+
+/* Popover Colors */
+--popover: [HUE] [SATURATION]% [LIGHTNESS]%;       /* Popover background color */
+--popover-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Popover text color */
+
+/* Card Colors */
+--card: [HUE] [SATURATION]% [LIGHTNESS]%;          /* Card background color */
+--card-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Card text color */
+
+/* Accent Colors */
+--accent: [HUE] [SATURATION]% [LIGHTNESS]%;        /* Accent background color */
+--accent-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Accent text color */
+
+/* Muted Colors */
+--muted: [HUE] [SATURATION]% [LIGHTNESS]%;         /* Muted background color */
+--muted-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Muted text color */
+
+/* Border and Input Colors */
+--border: [HUE] [SATURATION]% [LIGHTNESS]%;        /* Border color */
+--input: [HUE] [SATURATION]% [LIGHTNESS]%;         /* Input field color */
+
+/* Border Radius */
+--radius: [VALUE]rem;                              /* Base border radius */
+
+/* Status Colors */
+--destructive: [HUE] [SATURATION]% [LIGHTNESS]%;   /* Destructive action background */
+--destructive-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Destructive action text */
+--warning: [HUE] [SATURATION]% [LIGHTNESS]%;       /* Warning background */
+--warning-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Warning text */
+--success-foreground: [HUE] [SATURATION]% [LIGHTNESS]%; /* Success text */
+```
+
+### Example Implementation
+Here's an example implementation for a chain theme (using Stride as reference):
+
+```css
+.leap-ui.your-chain {
+  /* Primary Colors */
+  --primary: 331 95.7% 45.9%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 323 94.2% 59.2%;
+  
+  /* Background Colors */
+  --background: 0 0% 100%;
+  --foreground: 331 100% 11.8%;
+  
+  /* Secondary Colors */
+  --secondary: 330 16.7% 86.3%;
+  --secondary-foreground: 331 100% 11.8%;
+  
+  /* Popover Colors */
+  --popover: 330 5% 98%;
+  --popover-foreground: 331 100% 11.8%;
+  
+  /* Card Colors */
+  --card: 330 12% 95.3%;
+  --card-foreground: 331 100% 11.8%;
+  
+  /* Accent Colors */
+  --accent: 292 20% 91%;
+  --accent-foreground: 331 100% 11.8%;
+  
+  /* Muted Colors */
+  --muted: 330 0% 95%;
+  --muted-foreground: 329 11.7% 38.6%;
+  
+  /* Border and Input */
+  --border: 330 13.8% 88.6%;
+  --input: 330 13.8% 88.6%;
+  --radius: 0.75rem;
+  
+  /* Status Colors */
+  --destructive: 0 85.6% 59.2%;
+  --destructive-foreground: 331 100% 11.8%;
+  --warning: 36.2 100% 42%;
+  --warning-foreground: 331 100% 11.8%;
+  --success-foreground: 331 100% 11.8%;
+}
+
+/* Dark Mode Variant */
+.leap-ui.your-chain.dark {
+  --primary: 331 95.7% 45.9%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 323 94.2% 59.2%;
+  --background: 331 100% 11.8%;
+  --foreground: 0 0% 100%;
+  --destructive: 0 85.6% 59.2%;
+  --destructive-foreground: 331 100% 11.8%;
+  --warning: 36.2 100% 42%;
+  --warning-foreground: 331 100% 11.8%;
+  --success-foreground: 331 100% 11.8%;
+}
+```
+
 ## Environment Variables
 
 The following environment variables are required for the application:
